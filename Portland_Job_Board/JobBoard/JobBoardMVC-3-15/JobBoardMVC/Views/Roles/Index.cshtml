@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* Main page that lists all roles that can be assigned to users for the application.
+   This view is restricted to only the Admin.*@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Delete</title>
+        <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    </head>
+
+<body>
+    <h2>Available Roles For Application</h2>
+
+    <br />
+
+    @* Table cell styling *@
+    <style type="text/css">
+        #tbrole, .c {
+            border: double;
+            text-align: center;
+        }
+    </style>
+
+    <table id="tbrole">
+        <tr>
+            <td class="c">
+                <strong>Role Name</strong>
+            </td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="c">
+                    @item.Name
+                </td>
+            </tr>
+        }
+    </table>
+
+    <br />
+
+    @* Create role button *@
+    <input type="button" class="btn btn-primary btn-sm" value="Create Role" onclick="location.href='@Url.Action("Create", "Roles")'">
+
+    <br />
+    <br />
+
+    @* Assign role button *@
+    <input type="button" class="btn btn-success btn-sm" value="Assign Role" onclick="location.href='@Url.Action("Register", "Roles")'">
+
+</body>
+</html>

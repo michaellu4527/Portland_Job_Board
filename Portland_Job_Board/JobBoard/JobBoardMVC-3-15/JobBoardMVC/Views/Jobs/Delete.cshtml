@@ -1,0 +1,117 @@
+﻿@model JobBoardMVC.Models.Job
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@* Confirmation page to delete selected job entry from database.
+   Part of the CRUD operation. This page is restricted to only Admin users. *@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h3>Are you sure you want to delete this job?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ApplicationLink):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ApplicationLink)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Company):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Company)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DatePosted):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DatePosted)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Experience):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Experience)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Hours):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Hours)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.JobID):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.JobID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.JobTitle):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.JobTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguagesUsed):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LanguagesUsed)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Location):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Salary):
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color form-group">
+                <div class="col-md-10" style="padding-left: 75px;">
+                    @Html.ActionLink("Back to Job List", "Admin", "Home")&nbsp;&nbsp;  | &nbsp;
+                    <input type="submit" value="Delete" class="btn btn-default" />
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>

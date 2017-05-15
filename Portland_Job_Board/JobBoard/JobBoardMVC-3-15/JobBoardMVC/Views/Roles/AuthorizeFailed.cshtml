@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "AuthorizeFailed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* Custom unauthorized access page. This page will be shown whenever 
+   a user tries to access a page that is restricted to only the Admin *@
+<link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+
+<div id="access">
+    <h1>Access Denied (._.)</h1>
+    <p>Sorry, but you are not authorized to access the content you requested. Please contact the site administrator if you have any questions.</p>
+
+    <br />
+    @* Link back to home page *@
+    <div id="link">
+        @Html.ActionLink("Back to Home Page", "Index", "Jobs")
+    </div>
+</div>
+
+
+
+@ViewData["Message"]
+
+<br />
+
+
+
+

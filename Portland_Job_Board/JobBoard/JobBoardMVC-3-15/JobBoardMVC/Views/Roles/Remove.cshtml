@@ -1,0 +1,23 @@
+﻿@*@model JobBoardMVC.Models.User
+
+@{
+    ViewBag.Title = "Remove";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Roles Listing </h2>
+
+@Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "Index")
+<hr />
+<div>
+    @foreach (var role in Model)
+    {
+        <p>
+            <strong>@role.Name | </strong>
+            <span onclick="return confirm('Are you sure to delete?')">
+                <a href='@Url.Action("Remove","Roles", new { rolename = @Model.Name })' class="delLink" style="color:red;">Delete</a>
+            </span> |
+        </p>
+    }
+</div>*@
+

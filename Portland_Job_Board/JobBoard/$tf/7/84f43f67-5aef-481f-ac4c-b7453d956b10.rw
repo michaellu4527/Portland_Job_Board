@@ -1,0 +1,83 @@
+#Update
+
+Quick update: a student made a scraping program using the module Selenium. He's sent it inside of the Slack channel, so I recommend doing all scrapes within that framework.
+
+#Introduction
+
+There are currently over 600 companies in the Portland metro area that hiring for over 4,000 tech-related jobs. 
+
+The problem is these jobs are mostly only listed on each company's career page. Navigated to each of them takes time.
+
+If these could be aggregated and displayed in a web application, this information could be used not just for students of The Tech Academy, but for many other job seekers in the area.
+
+The Tech Academy is currently partnered with a non-profit site, PortlandTech.Org, which is run by the state of Oregon. PortlandTech.Org has expressed a willingness for such a database and would love access to an API when it is completed.
+
+So the goal of this project is twofold:
+
+1. Create a web application to aggregate jobs in the Portland metro area and display it to visitors of the site. Additional features include an Admin login with CRUD capabilities, a Job-Seeker login for saving and applying for jobs, as well as Company table that tracks additional data points: which jobs are typically advertised, how long they stay up, etc.
+
+2. Create an API for use in the sites of non-profit entities such as PortlandTech.Org. 
+
+Here is the live site with the most recent push: http://prosperitjobboard.azurewebsites.net/
+
+As you can see, it's very raw. We've focused only on functionality so far. If someone wants to go through it and make it pretty, go for it.
+
+#Getting Started
+
+Now that you are linked to the TFS, you should have a full copy of the project "mapped and got" to your local computer. There are several folders available; you should only download the 'JobBoardMVC-3-15' folder.
+
+This should be the very first step: downloading the code and running it locally.
+
+#Choosing a Backlog Item
+
+Under "Work" you'll find a list of stories that need to be completed. Inside each story you'll see a section called "Assigned to". If you'd like to choose the project, assign it to yourself.
+
+If you need to communicate with the Project Manager or another team member, below each item is a "Discussion" section. Using Twitter-style "@person'sname" you can tag and communicate.
+
+You can also communicate through our Slack channel: jobboardliveproject.slack.com
+
+If you are editing a file that others may be working on-- such as the Index file-- be sure to "check out" the file. This lets everyone know that you're working on it, and it won't allow anyone to "check in" the file until you have also "checked in" the file.
+
+After successfully editing a file that you would like to send to TFS, simply "check in" that file, and the administrator will receive a notification and be able to view the changes.
+
+#Beginning the project
+
+There are still over 550 scrapes to do of local companies. We ask that all new people on the project do at least 1 scrape to start.
+
+We currently scrape website data using Python, specifically the BeautifulSoup module. The result of your Python program should be a .json file. These .json files will be auto-populated into our database daily.
+
+Here is an example of a scrape done by a previous student: https://github.com/the-tech-academy/JobBoardLiveProject/blob/master/Scrape.py
+
+#Proper JSON Format Example:
+
+{
+    "JobBoard": {
+        "Job": [{
+            "ApplicationLink": "http://www.hoytarboretum.org/about/employment-opportunities/",
+            "Company": "Hoyt Arboretum Friends",
+            "DatePosted": "Closing Date: 2/27/2017",
+            "Experience": "",
+            "Hours": "Type: Part Time",
+            "JobID": "",
+            "JobTitle": "Education Coordinator",
+            "LanguagesUsed": "",
+            "Location": "Location: Portland Metro",
+            "Salary": ""
+        }, {
+            "ApplicationLink": "",
+            "Company": "Oregon College of Oriental Medicine",
+            "DatePosted": "Closing Date: open until filled",
+            "Experience": "",
+            "Hours": "Type: Full Time",
+            "JobID": "",
+            "JobTitle": "Admissions Counselor",
+            "LanguagesUsed": "",
+            "Location": "Location: Portland Metro",
+            "Salary": ""
+        }]
+    }
+}
+
+Regards,
+
+Jesse

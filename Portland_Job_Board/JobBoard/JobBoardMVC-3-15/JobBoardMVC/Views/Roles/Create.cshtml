@@ -1,0 +1,49 @@
+﻿
+@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+@{
+    ViewBag.Title = "Create";
+}
+
+@* Use this form to create a new role. This view is restricted to only the Admin. *@
+
+<h2>Create Roles</h2>
+
+<br />
+
+@* Creating table border *@
+<style type="text/css">
+    #tbrole, .c {
+        border: double;
+    }
+</style>
+
+@* Role creation form *@
+
+@using (Html.BeginForm())
+{
+    <table id="tbrole">
+        <tr>
+            <td class="c">
+                <strong>Enter Role Name To be Created:</strong>
+            </td>
+            <td class="c">
+                @Html.EditorFor(m => m.Name)
+            </td>
+        </tr>
+    </table>
+
+    <br />
+
+    <div>
+        <input type="submit" class="btn btn-default btn-sm" value="Create Role">
+    </div>
+
+    <br />
+
+    @* Link back to Roles home page *@
+    <div>
+        @Html.ActionLink("Back to List", "Index", "Roles")
+    </div>
+
+
+}

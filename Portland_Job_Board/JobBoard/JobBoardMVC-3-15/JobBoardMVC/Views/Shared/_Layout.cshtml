@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../Content/Site.css" rel="stylesheet">
+    <title>Portland Job Board - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Begin Nav Bar-->
+        <div class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-collapse collapse">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <!-- End Nav Bar-->
+        <div class="container body-content">
+            <!-- Begin Body Content-->
+            @RenderBody()
+            <!-- End Body Content-->
+        </div>
+        <hr />
+        <footer class="footer-distributed">
+            <font>&copy; @DateTime.Now.Year - Portland Job Board</font>
+            <a href="Home/Help"> Help </a>
+            <a href="Home/FAQ"> FAQ </a>
+            <a href="Home/Privacy"> Privacy </a>
+            <a href="Home/TOS"> Terms of Service </a>
+
+            <p>
+                This website was created by the students and staff of
+                <a href="http://www.learncodinganywhere.com">The Tech Academy </a> :
+                <a href="http://www.learncodinganywhere.com">www.learncodinganywhere.com </a>
+            </p>
+
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

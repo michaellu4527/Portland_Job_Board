@@ -1,0 +1,107 @@
+﻿@model JobBoardMVC.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Job</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ApplicationLink)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ApplicationLink)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Company)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Company)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DatePosted)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DatePosted)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Experience)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Experience)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Hours)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Hours)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.JobID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.JobID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.JobTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguagesUsed)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LanguagesUsed)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

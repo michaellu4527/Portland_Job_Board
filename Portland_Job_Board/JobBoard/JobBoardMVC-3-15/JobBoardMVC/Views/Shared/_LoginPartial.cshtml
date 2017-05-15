@@ -1,0 +1,79 @@
+﻿@using Microsoft.AspNet.Identity
+@* Login verification: This is a big If Else the purpose of which is to
+    separate the User from the Admin in the login.
+    if administrator, then admin link appears.
+    if anyone else, then dashboard link appears.*@
+@if (Request.IsAuthenticated)
+{
+    var username = User.Identity.GetUserName();
+    
+    if (username == "administrator@portlandjobboard.com")
+    {
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left ">
+                <li>@Html.ActionLink("Portland Job Board", "Index", "Jobs", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Home", "Index", "Jobs")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
+                <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                </li>
+            </ul>
+        </div>
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+        }
+    }
+
+    else
+    {
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left ">
+                <li>@Html.ActionLink("Portland Job Board", "Index", "Jobs", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Home", "Index", "Jobs")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("My Dashboard", "Dashboard", "Home")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                </li>
+            </ul>
+        </div>
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+        }
+    }
+
+}
+
+
+else
+{
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left ">
+            <li>@Html.ActionLink("Portland Job Board", "Index", "Jobs", new { area = "" }, new { @class = "navbar-brand" })</li>
+            <li>@Html.ActionLink("Home", "Index", "Jobs")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    </div>
+}
